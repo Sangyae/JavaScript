@@ -17,24 +17,35 @@ class Car {
     }
 }
 
-const cx1 = new Car(4, "V8", "red");
-const cx2 = new Car(2, "v2", "blue");
+class suv extends Car{
+    constructors(doors, engine, color, brand, carStats){
+        super(doors, engine, color, carStats);
+        this.brand = "no brand yet";
+        this.wheels = 4;
+        this.ac = true;
+    }
+    get getBrand(){
+        return this._brand;
+    }
+    set setBrand(newBrand){
+        this._brand = newBrand;
+    }
+    myBrand(){
+        return console.log(`This car is a ${this.brand} brand`);
+    }
+}
 
-console.log(cx1);
-console.log(cx1.carStats()); 
+
+const cx1 = new Car(4, "V8", "red",);
+// const cx2 = new Car(2, "v2", "blue");
+
+console.log(cx1.getBrand);
+cx1.setBrand = "Toyota";
+console.log(cx1.getBrand);
+
 // console.log(cx2);
 // console.log(cx2.carStats());
 // console.log(Car.totalDoors(cx1, cx2));
 
-class suv extends Car{
-    constructors(doors, engine, color, brand, carStats){
-        super(doors, engine, color, carStats);
-        this.brand = brand;
-        this.wheels = 4;
-        this.ac = true;
-    }
-}
 
-const newcar = new suv(4, "V6", "black", "This is a SUV car");
-console.log(newcar);
 
