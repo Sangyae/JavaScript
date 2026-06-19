@@ -18,9 +18,9 @@ class Car {
 }
 
 class suv extends Car{
-    constructors(doors, engine, color, brand, carStats){
+    constructor(doors, engine, color, brand, carStats){
         super(doors, engine, color, carStats);
-        this.brand = "no brand yet";
+        this._brand = "no brand yet";
         this.wheels = 4;
         this.ac = true;
     }
