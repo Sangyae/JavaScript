@@ -1,3 +1,17 @@
+let mixin = {
+    madeIn(){
+        return `This car was made in Japan`;
+    }
+}
+
+let carMixin ={
+    __proto__: mixin,
+
+    madeIn(){
+        super.madeIn();
+    }
+};
+
 class Car {
     constructor(doors, engine , color){
         this.doors = doors;
@@ -23,6 +37,9 @@ class suv extends Car{
         this._brand = "no brand yet";
         this.wheels = 4;
         this.ac = true;
+
+        // assign mixin
+        Object.assign(this, carMixin);
     }
     get getBrand(){
         return this._brand;
@@ -42,6 +59,8 @@ const cx1 = new Car(4, "V8", "red",);
 console.log(cx1.getBrand);
 cx1.setBrand = "Toyota";
 console.log(cx1.getBrand);
+
+console.log(cx1.madeIn());
 
 // console.log(cx2);
 // console.log(cx2.carStats());
